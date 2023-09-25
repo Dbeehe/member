@@ -16,41 +16,38 @@ public class MemberEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, nullable = false, unique = true)
-    private String member_email;
+    @Column(nullable = false, unique = true)
+    private String memberEmail;
 
-    @Column(length = 20, nullable = false)
-    private String member_password;
+    @Column(nullable = false)
+    private String memberPassword;
 
-    @Column(length = 20, nullable = false)
-    private String member_name;
+    @Column(nullable = false)
+    private String memberName;
 
-    @Column(length = 20)
-    private String member_birth;
+    @Column
+    private String memberBirth;
 
-    @Column(length = 30)
-    private String member_mobile;
+    @Column
+    private String memberMobile;
 
-
-
-    // DTO -> Entity
-    public static MemberEntity toSaveEntity(MemberDTO memberDTO){
+    public static MemberEntity toSaveEntity(MemberDTO memberDTO) {
         MemberEntity memberEntity = new MemberEntity();
-        memberEntity.setMember_email(memberDTO.getMemberEmail());
-        memberEntity.setMember_password(memberDTO.getMemberPassword());
-        memberEntity.setMember_name(memberDTO.getMemberName());
-        memberEntity.setMember_birth(memberDTO.getMemberBirth());
-        memberEntity.setMember_mobile(memberDTO.getMemberMobile());
+        memberEntity.setMemberEmail(memberDTO.getMemberEmail());
+        memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+        memberEntity.setMemberName(memberDTO.getMemberName());
+        memberEntity.setMemberBirth(memberDTO.getMemberBirth());
+        memberEntity.setMemberMobile(memberDTO.getMemberMobile());
         return memberEntity;
     }
     public static MemberEntity toUpdateEntity(MemberDTO memberDTO){
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setId(memberDTO.getId());
-        memberEntity.setMember_email(memberDTO.getMemberEmail());
-        memberEntity.setMember_password(memberDTO.getMemberPassword());
-        memberEntity.setMember_name(memberDTO.getMemberName());
-        memberEntity.setMember_birth(memberDTO.getMemberBirth());
-        memberEntity.setMember_mobile(memberDTO.getMemberMobile());
+        memberEntity.setMemberEmail(memberDTO.getMemberEmail());
+        memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+        memberEntity.setMemberName(memberDTO.getMemberName());
+        memberEntity.setMemberBirth(memberDTO.getMemberBirth());
+        memberEntity.setMemberMobile(memberDTO.getMemberMobile());
         return memberEntity;
     }
 
