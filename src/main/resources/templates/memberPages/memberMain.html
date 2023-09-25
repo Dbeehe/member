@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block th:replace="~{component/config :: config}"></th:block>
 </head>
 <body>
+<div th:replace="~{component/header :: header}"></div>
     <p th:text="|${session.loginEmail} 님 환영합니다!|"></p>
+<div th:replace="~{component/footer :: footer}"></div>
+
 </body>
 </html>

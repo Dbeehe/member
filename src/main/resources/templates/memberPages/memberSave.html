@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <th:block th:replace="~{component/config :: config}"></th:block>
 </head>
 <body>
+<div th:replace="~{component/header :: header}"></div>
+
 <form action="/member/save" method="post">
-    이메일: <input type="text" name="memberEmail" placeholder="이메일입력"><br>
+    이메일: <input type="text" class="form-control" name="memberEmail" placeholder="이메일입력"><br>
     비밀번호: <input type="text" name="memberPassword" placeholder="비밀번호입력"><br>
     이름: <input type="text" name="memberName" placeholder="이름입력"><br>
     생년월일: <input type="date" name="memberBirth" placeholder="생년월일입력"><br>
     전화번호: <input type="text" name="memberMobile" placeholder="전화번호입력"><br>
     <input type="submit" value="회원가입">
 </form>
+<div th:replace="~{component/footer :: footer}"></div>
+
 </body>
 </html>
