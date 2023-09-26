@@ -1,6 +1,6 @@
-package com.example.member.dto;
+package com.icia.member.dto;
 
-import com.example.member.entity.MemberEntity;
+import com.icia.member.entity.MemberEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

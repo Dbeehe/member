@@ -1,4 +1,4 @@
-package com.example.member;
+package com.icia.member;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

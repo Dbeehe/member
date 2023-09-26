@@ -1,12 +1,14 @@
-package com.example.member.service;
+package com.icia.member.service;
 
-import com.example.member.dto.MemberDTO;
-import com.example.member.entity.MemberEntity;
-import com.example.member.repository.MemberRepository;
+import com.icia.member.dto.MemberDTO;
+import com.icia.member.entity.MemberEntity;
+import com.icia.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.support.ManagedList;
 import org.springframework.stereotype.Service;
 
-import java.util.NoSuchElementException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,6 +46,18 @@ public class MemberService {
         }else {
             return false;
         }
+    }
+
+    public List<MemberDTO> findAll() {
+        List<MemberEntity> memberEntityList = memberRepository.findAll();
+        List<MemberDTO> memberDTOList = new ArrayList<>();
+        for(MemberEntity memberEntity: memberEntityList){
+//            MemberDTO memberDTO = MemberDTO.toDTO(memberEntity);
+//            memberDTOList.add(memberDTO);
+            // 한줄로
+            memberDTOList.add(MemberDTO.toDTO(memberEntity));
+        }
+        return memberDTOList;
     }
 }
 

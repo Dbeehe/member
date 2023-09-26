@@ -1,6 +1,6 @@
-package com.example.member.entity;
+package com.icia.member.entity;
 
-import com.example.member.dto.MemberDTO;
+import com.icia.member.dto.MemberDTO;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

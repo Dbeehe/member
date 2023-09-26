@@ -1,7 +1,6 @@
-package com.example.member.repository;
+package com.icia.member.repository;
 
-import com.example.member.dto.MemberDTO;
-import com.example.member.entity.MemberEntity;
+import com.icia.member.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
