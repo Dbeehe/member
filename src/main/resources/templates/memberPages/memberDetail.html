@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{component/config :: config}"></th:block>
+</head>
+<body>
+<div th:replace="~{component/header :: header}"></div>
+<div th:replace="~{component/nav :: nav}"></div>
+
+<div class="container">
+  <!-- 화면에 보여질 내용이 들어갈 부분 -->
+  <table class="table table-hover">
+    <tr>
+      <td>id</td>
+      <td th:text="${member.id}"></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td th:text="${member.memberEmail}"></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td th:text="${member.memberName}"></td>
+    </tr>
+    <tr>
+      <td>birth</td>
+      <td th:text="${member.memberBirth}"></td>
+    </tr>
+    <tr>
+      <td>mobile</td>
+      <td th:text="${member.memberMobile}"></td>
+    </tr>
+  </table>
+</div>
+
+<div th:replace="~{component/footer :: footer}"></div>
+
+</body>
+</html>

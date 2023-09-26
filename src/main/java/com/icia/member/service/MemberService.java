@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -58,6 +59,11 @@ public class MemberService {
             memberDTOList.add(MemberDTO.toDTO(memberEntity));
         }
         return memberDTOList;
+    }
+
+    public MemberDTO findById(Long id) {
+        MemberEntity memberEntity = memberRepository.findById(id).orElseThrow(() -> new NoSuchElementException());
+        return MemberDTO.toDTO(memberEntity);
     }
 }
 
