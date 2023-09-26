@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
 @Getter
+@Setter
 @ToString
 public class MemberDTO {
     private Long id;
@@ -16,7 +16,7 @@ public class MemberDTO {
     private String memberBirth;
     private String memberMobile;
 
-    public static MemberDTO toDTO(MemberEntity memberEntity){
+    public static MemberDTO toDTO(MemberEntity memberEntity) {
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setId(memberEntity.getId());
         memberDTO.setMemberEmail(memberEntity.getMemberEmail());
@@ -26,6 +26,4 @@ public class MemberDTO {
         memberDTO.setMemberMobile(memberEntity.getMemberMobile());
         return memberDTO;
     }
-
-
 }

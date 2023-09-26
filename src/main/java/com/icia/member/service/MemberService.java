@@ -71,9 +71,18 @@ public class MemberService {
             return false;
         }
     }
+
+    public MemberDTO findByMemberEmail(String memberEmail) {
+        MemberEntity memberEntity = memberRepository.findByMemberEmail(memberEmail).orElseThrow(() -> new NoSuchElementException());
+        return MemberDTO.toDTO(memberEntity);
+    }
+
+    public void update(MemberDTO memberDTO) {
+        MemberEntity memberEntity = MemberEntity.toUpdateEntity(memberDTO);
+        memberRepository.save(memberEntity);
+    }
+
+    public void delete(Long id) {
+        memberRepository.deleteById(id);
+    }
 }
-
-
-
-
-

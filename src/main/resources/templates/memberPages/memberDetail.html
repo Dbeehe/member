@@ -11,26 +11,27 @@
   <!-- 화면에 보여질 내용이 들어갈 부분 -->
   <table class="table table-hover">
     <tr>
-      <td>id</td>
+      <th>id</th>
       <td th:text="${member.id}"></td>
     </tr>
     <tr>
-      <td>email</td>
+      <th>email</th>
       <td th:text="${member.memberEmail}"></td>
     </tr>
     <tr>
-      <td>name</td>
+      <th>name</th>
       <td th:text="${member.memberName}"></td>
     </tr>
     <tr>
-      <td>birth</td>
+      <th>birth</th>
       <td th:text="${member.memberBirth}"></td>
     </tr>
     <tr>
-      <td>mobile</td>
+      <th>mobile</th>
       <td th:text="${member.memberMobile}"></td>
     </tr>
   </table>
+
 </div>
 
 <div th:replace="~{component/footer :: footer}"></div>
