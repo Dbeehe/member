@@ -3,6 +3,8 @@ package com.icia.member.controller;
 import com.icia.member.dto.MemberDTO;
 import com.icia.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,18 +56,36 @@ public class MemberController {
     }
 
     @GetMapping("/{id")
-    public String findById(@PathVariable("id") Long id, Model model){
+    public String findById(@PathVariable("id") Long id, Model model) {
         try {
             MemberDTO memberDTO = memberService.findById(id);
-            model.addAttribute("member",memberDTO);
+            model.addAttribute("member", memberDTO);
             return "memberPages/memberDetail";
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             return "memberPages/NotFound";
-        }catch (Exception e){
+        } catch (Exception e) {
             return "memberPages/NotFound";
         }
+    }
 
+    @PostMapping("/dup-check")
+    public ResponseEntity emailCheck(@RequestBody MemberDTO memberDTO){
+        boolean result = memberService.emailCheck(memberDTO.getMemberEmail());
+        if(result){
+            return new ResponseEntity<>("사용가능",HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>("사용불가능",HttpStatus.CONFLICT);
+        }
+    }
 
+    @GetMapping("/axios/{id}")
+    public ResponseEntity detailAxios(@PathVariable("id") Long id){
+        try{
+            MemberDTO memberDTO = memberService.findById(id);
+            return new ResponseEntity<>(memberDTO, HttpStatus.OK);
+        }catch (Exception e) {
+            return new ResponseEntity(HttpStatus.FOUND);
+        }
     }
 
 
