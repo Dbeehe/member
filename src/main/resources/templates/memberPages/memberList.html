@@ -47,7 +47,7 @@
     // location.href = `/member/${id}`;
     const detailArea = document.querySelector("#detail-area");
     axios({
-      method: "post",
+      method: "get",
       url: `/member/axios/${id}`
     }).then(res => {
       console.log("res", res);
